@@ -20,30 +20,14 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{url('home')}}">Home</a></li>
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="{{url('/user')}}">User
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{route('admin.users.index')}}">View/Edit Users</a></li>
-                    <li><a href="{{route('admin.users.create')}}">Create Users</a></li>
-                    {{--<li><a href="{{route('admin.users.edit')}}">Edit User</a></li>--}}
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="{{url('product')}}">Products
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{route('admin.products.index')}}">View Products</a></li>
-                    <li><a href="{{route('admin.products.create')}}">Create Product</a></li>
+
+                    @foreach($products as $product)
+                    <li><a href="{{route('products.one')}}">{{$product->name}}</a></li>
+                    @endforeach
                     {{--<li><a href="{{route('admin.products.edit',$product->id)}}">Edit Product</a></li>--}}
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Media
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{route('admin.media.index')}}">View Media</a></li>
-                    <li><a href="{{route('admin.media.create')}}">Upload Media</a></li>
-                    {{--<li><a href="#">Edit Product</a></li>--}}
                 </ul>
             </li>
             <li><a href="{{url('about')}}">About Us</a></li>

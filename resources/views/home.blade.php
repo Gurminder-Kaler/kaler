@@ -9,7 +9,9 @@
 
                 <div class="panel-body">
                     You are logged in! <br>
+                    @if(Auth::user()->isAdmin())
                     <a href="{{url('/admin')}}">GOTO dashboard</a>
+                        @endif
                 </div>
             </div>
         </div>

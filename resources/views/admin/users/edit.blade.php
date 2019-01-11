@@ -37,19 +37,25 @@
             </div>
         </div>
 
-        {!! Form::submit('Update User',['class'=>'btn btn-primary' ]) !!}
-
-
-        {!! Form::close() !!}
-        <div class="container">
-            {!! Form::open(['method'=>'DELETE', 'action'=> ['UserController@destroy', $user->id]]) !!}
-
-            <div class="form-group">
-                {!! Form::submit('Delete user', ['class'=>'btn btn-danger col-sm-6']) !!}
+        <div class="row">
+            <div class="col-md-6">
+                {!! Form::submit('Update User',['class'=>'btn btn-primary' ]) !!}
+                {!! Form::close() !!}
             </div>
+            <div class="col-md-6">
 
-            {!! Form::close() !!}
+                    {!! Form::open(['method'=>'DELETE', 'action'=> ['UserController@destroy', $user->id]]) !!}
+
+                    <div class="form-group">
+                        {!! Form::submit('Delete user', ['class'=>'btn btn-danger']) !!}
+                    </div>
+
+                    {!! Form::close() !!}
+
+            </div>
         </div>
+
+
 
     </div>
 

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Home Page for Kalair Engineering Co.</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -18,18 +18,42 @@
             <a class="navbar-brand" href="#"><p style="font-size: 45px;padding: 5px">KALAIR ENGINEERING CO.</p></a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{url('home')}}">Home</a></li>
+            <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="{{url('product')}}">Our Products
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Products
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Product A</a></li>
-                    <li><a href="#">Product B</a></li>
-                    <li><a href="#">Product C</a></li>
+                    {{--<li><a href="#">{{$products->product_name}}</a></li>--}}
                 </ul>
             </li>
             <li><a href="{{url('about')}}">About Us</a></li>
             <li><a href="{{url('contact')}}">Contact Us</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Options
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+
+                    @if (Auth::check())
+                        @if(Auth::user()->isAdmin())
+
+                            <li><a href="{{url('/logout')}}"> Logout of {{Auth::user()->name}}</a></li>
+                            <li><a href="{{url('admin')}}">GOTO Dashboard</a></li>
+                        @else
+
+                            <li><a href="{{url('/logout')}}"> Logout of {{Auth::user()->name}}</a></li>
+                        @endif
+                    @else
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+
+                    @endif
+                </ul>
+            </li>
+            <li>
+                @if(Auth::check())
+               <p style="padding: 25px;background:#1f648b;color: #fff;font-size: 25px">Welcome, {{Auth::user()->name}}</p>
+                    @endif
+            </li>
         </ul>
     </div>
 </nav>
@@ -37,7 +61,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div id="myCarousel" style="padding: -1px" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

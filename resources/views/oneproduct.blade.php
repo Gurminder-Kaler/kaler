@@ -1,3 +1,4 @@
-@extends('layouts.homelayout')
+@extends('layouts.oneproduct')
 @section('content')
+
     @endsection

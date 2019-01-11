@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
     {
         return [
             //
-            'product_id'=>'required',
+            'product_id'=>'required|integer',
             'product_name'=>'required',
             'description'=>'required|max:600',
             'product_price'=>'required',
