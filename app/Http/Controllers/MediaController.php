@@ -10,7 +10,8 @@ class MediaController extends Controller
     public function index()
     {
         //
-        $photos= Photo::all();
+        //$page = Photo::paginate(2);
+        $photos= Photo::paginate(3);
         return view('admin.media.index',compact('photos'));
     }
     public function create()

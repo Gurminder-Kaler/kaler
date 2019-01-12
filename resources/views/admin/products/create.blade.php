@@ -1,6 +1,6 @@
 @extends('layouts.product')
 @section('content')
-
+@include('includes.tinyeditor')
     <h1>User Index</h1>
     <div class="container">
         <div class="row">

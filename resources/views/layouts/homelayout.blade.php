@@ -23,7 +23,13 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Products
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    {{--<li><a href="#">{{$products->product_name}}</a></li>--}}
+
+                    <li>@php($products = App\Product::where("is_active","=",1)->get())
+                        @if(count($products)> 0)
+                            @foreach($products as $product)
+                                <a href="{{route('hproduct',$product->id)}}">{{$product->product_name}}</a>
+                            @endforeach
+                        @endif</li>
                 </ul>
             </li>
             <li><a href="{{url('about')}}">About Us</a></li>

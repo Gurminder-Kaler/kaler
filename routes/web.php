@@ -28,6 +28,10 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/admin',function (){
         return view('admin.index');
     });
+
+    Route::get('/oneproduct/{id}',['as'=>'hproduct','uses'=>'ProductController@productView']);
+    Route::get('/allproducts',['as'=>'allproducts','uses'=>'ProductController@allProducts']);
+
     Route::resource('/admin/users/','UserController',
         [
             'names'=>

@@ -29,12 +29,22 @@
             <td>{{$photo->created_at?$photo->created_at :'no date'}}</td>
             <td>{{$photo->updated_at}}</td>
         </tr>
+
             @endforeach
           @else
           <tr>No Files to show</tr>
 
 
+          @endif
       </tbody>
     </table>
-    @endif
+
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {{$photos->render()}}
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 @endsection

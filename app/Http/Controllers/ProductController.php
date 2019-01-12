@@ -11,14 +11,31 @@ use function Sodium\compare;
 class ProductController extends Controller
 {
 //    public function product($id){
-//        $product = Product::findorFail($id);
+//        $pro9duct = Product::findorFail($id);
 //        $product1 =$product->products()->whereId($id)->get();
 //    }
+
+        public function productView($id)
+        {
+            $abc = Product::findorFail($id);
+
+            //$product = $abc->where("is_active","=",1 )->get();
+            //$wanted = $product->where("id","=",$id);
+            //dd($product);
+//
+            return view('oneproduct')->with(array("abc"=>$abc));
+        }
+
+        public function allProducts()
+        {
+            return view('allproducts');
+        }
+
 
     public function index()
     {
         //
-        $products = Product::all();
+        $products = Product::paginate(5);
 
         return view('admin.products.index',compact('products'));
     }

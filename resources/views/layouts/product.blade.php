@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Products:admin</title>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -44,10 +45,21 @@
                     <li><a href="{{route('admin.media.index')}}">View Media</a></li>
                     <li><a href="{{route('admin.media.create')}}">Upload Media</a></li>
                     {{--<li><a href="#">Edit Product</a></li>--}}
+
                 </ul>
             </li>
             <li><a href="{{url('about')}}">About Us</a></li>
             <li><a href="{{url('contact')}}">Contact Us</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Options
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    @if (Auth::check())
+                            <li><a href="{{url('/logout')}}"> Logout of {{Auth::user()->name}}</a></li>
+                            <li><a href="{{url('admin')}}">GOTO Dashboard</a></li>
+                    @endif
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>
